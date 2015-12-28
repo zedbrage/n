@@ -1,0 +1,14 @@
+Managing x86 systems with PXE + cobbler:
+========================================
+
+(1) set (previously) non-netbootable system in cobbler to bootable:
+  $ cobbler system edit --name <system_name> --netboot-enable true
+
+(2) reboot said system:
+  $ ssh <system_name> reboot
+
+(3) wait for system to boot over network:
+  $ tcpdump -i <interface> -c 1 -s 1500 '((port 67 or port 68) and (udp[38:4] = 0xLLAASST4))'
+
+(4) set netbootable system in cobbler to non-netbootable during install (so it doesn't loop):
+  $ cobbler system edit --name <system_name> --netboot-enable false:
