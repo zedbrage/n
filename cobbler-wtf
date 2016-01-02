@@ -1,0 +1,7 @@
+Notes on Cobbler
+================
+Not sure why a per-system filename of /pxelinux.0 gets added by default for certain netbooted systems with cobbler
+in /etc/dhcp/dhcpd.conf after a 'cobbler sync' -- is this a per distro thing? If so can it then be changed
+with a 'cobbler distro edit'?
+
+Or better yet, can it be changed on a per-system basis with a 'cobbler system edit'?
